@@ -1,0 +1,12 @@
+
+<%= fetch :stage %>:
+  adapter: postgresql
+  # to fix : new encoding (UTF8) is incompatible with the encoding of the template database specify template :
+  template: template0
+  encoding: unicode
+  database: <%= fetch :db_name %>
+  pool: 5
+  username: <%= fetch :db_user %>
+  password: <%= fetch :db_password %>
+  host: <%= fetch :db_host %>
+

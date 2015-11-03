@@ -1,0 +1,12 @@
+environment "<%= fetch :stage %>"
+daemonize false
+
+pidfile "<%= fetch :puma_pid %>"
+state_path "<%= fetch :puma_state %>"
+
+
+threads 0, 16
+bind "<%= fetch :puma_sock %>"
+
+
+activate_control_app "<%= fetch :puma_sock_ctl %>"
