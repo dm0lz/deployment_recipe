@@ -21,3 +21,11 @@ cap production deploy:setup
 ```
 cap production deploy
 ```
+#### Troubleshooting
+If you get error : bundle not found, ssh into server and run 
+```
+rvm use 2.2.2 --default
+```
+```
+gem install bundler
+```
