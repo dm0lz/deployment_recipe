@@ -5,7 +5,7 @@ adduser deployer
 ```
 #### Then install following stuff
 ```
-apt-get -y update && apt-get -y upgrade && apt-get -y install curl && apt-get -y install git-core && apt-get -y install python-software-properties && apt-get -y install locate
+apt-get -y update && apt-get -y upgrade && apt-get -y install curl && apt-get -y install git-core && apt-get -y install nodejs && apt-get -y install python-software-properties && apt-get -y install locate
 ```
 #### Then you need to allow passwordless sudo, add to visudo :
 ```
