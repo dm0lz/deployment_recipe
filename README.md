@@ -1,18 +1,19 @@
-# README #
+# Setup deployment using postgres Nginx Puma #
 
-To allow passwordless sudo, add to visudo :
+#### First install following stuff
+```
+apt-get -y update && apt-get -y upgrade && apt-get -y install curl && apt-get -y install git-core && apt-get -y install python-software-properties && apt-get -y install locate
+```
+#### Then you need to allow passwordless sudo, add to visudo :
 ```
 deployer ALL=NOPASSWD: ALL
 %deployer ALL = (postgres) NOPASSWD: ALL
 ```
-### Setup ###
-
+#### This will setup postgres, create db, create user setup nginx and puma
 ```
 cap production deploy:setup
 ```
-
-Uncomment in deploy.rb the appropriate lines and finally execute :
-
+#### Then you need to uncomment in deploy.rb the appropriate lines and finally run :
 
 ```
 cap production deploy
