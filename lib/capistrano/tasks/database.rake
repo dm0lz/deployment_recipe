@@ -24,12 +24,14 @@ namespace :database do
         info "User #{fetch :db_user} already exists"
       else
         execute %Q{sudo -u postgres psql -c "create user #{fetch :db_user} with password '#{fetch :db_password}';"}
+        execute %Q{sudo -u postgres psql -c "ALTER ROLE #{fetch :db_user} WITH CREATEDB;"}
       end
       # Create database if it does not exists
       if test %Q{sudo -u postgres psql -lqt | cut -d \\| -f 1 | grep -wq #{fetch :db_name}}
         info "Database #{fetch :db_name} already exists"
       else
-        execute %Q{sudo -u postgres psql -tAc "CREATE DATABASE #{fetch :db_name}"}
+        execute %Q{sudo -u postgres psql -tAc "CREATE DATABASE #{fetch :db_name};"}
+        execute %Q{sudo -u postgres psql -c "ALTER database #{fetch :db_name} OWNER to #{fetch :db_user};"}
       end
     end
   end
